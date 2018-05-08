@@ -10,4 +10,8 @@ public class Packman {
     public int getPoints() {
         return points;
     }
+
+    public void eat(Food food) {
+        this.points += food.getPointsOfIt();
+    }
 }
