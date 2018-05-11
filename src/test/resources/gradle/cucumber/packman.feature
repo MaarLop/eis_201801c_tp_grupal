@@ -8,3 +8,13 @@ Feature: Packman game
      Given A new packman
      When Packman eats a biscuits
      Then Its points are 10
+
+     Scenario: A packman collides with a ghost and die
+     Given A new packman
+     When Packman collides with a ghost
+     Then Its dies
+
+     Scenario: A packman eats a fruit and get twenty point
+          Given A new packman
+          When Packman eats a fruit
+          Then Its points are 20
