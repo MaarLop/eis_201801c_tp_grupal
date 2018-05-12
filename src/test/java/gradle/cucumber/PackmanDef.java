@@ -50,6 +50,14 @@ public class PackmanDef {
         packman.eat(fruit);
     }
 
+    @Then("^Its points are (\\d+)$")
+    public void its_points_are_2(int point) {
+        Object actual = packman.getPoints();
+        Object expected = point;
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
     @When("^Packman collides with a ghost weakened")
     public void packman_collides_with_a_ghost_weakened() {
         ghost = new Ghost();
