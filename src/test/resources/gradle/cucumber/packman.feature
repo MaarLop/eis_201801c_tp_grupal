@@ -18,3 +18,8 @@ Feature: Packman game
           Given A new packman
           When Packman eats a fruit
           Then Its points are 20
+
+Scenario: A pacman collides with weakened ghost
+          Given A new packman
+          When Packman collides with a ghost weakened
+          Then the pacman does not die and the ghost loses its body
