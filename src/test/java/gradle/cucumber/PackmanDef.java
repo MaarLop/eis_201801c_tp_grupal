@@ -50,7 +50,7 @@ public class PackmanDef {
         packman.eat(fruit);
     }
 
-    @Then("^Its points are (\\d+)$")
+    @Then("^Its points are, (\\d+)$")
     public void its_points_are_2(int point) {
         Object actual = packman.getPoints();
         Object expected = point;
