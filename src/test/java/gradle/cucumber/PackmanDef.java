@@ -61,9 +61,9 @@ public class PackmanDef {
         public void does_not_dies() {
         assert packman.die();
     }
-        /*public void the_ghost_loses_its_body() {
+        public void the_ghost_loses_its_body() {
         assert !ghost.hasBody();
-    }*/
+    }
 
 
 
