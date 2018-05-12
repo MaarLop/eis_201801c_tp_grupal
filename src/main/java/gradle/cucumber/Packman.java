@@ -19,9 +19,13 @@ public class Packman {
 
     public void collides(Ghost ghost) {
 
-        if (ghost.hasBody()){
+        if (ghost.hasBody() && !ghost.isWeakened()){
             this.isALive=false;
         }
+        if(ghost.hasBody() && ghost.isWeakened()){
+            ghost.noBody();
+        }
+
     }
 
     public Boolean die() {
