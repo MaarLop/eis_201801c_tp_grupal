@@ -41,7 +41,7 @@ public class PackmanDef {
 
     @Then("^Its dies$")
     public void its_dies() {
-        assert packman.die();
+        assert packman.isDie();
     }
 
     @When("^Packman eats a fruit$")
@@ -57,14 +57,21 @@ public class PackmanDef {
         packman.collides(ghost);
     }
 
-    @Then("^The pacman does not die and the ghost loses its body$")
-        public void does_not_dies() {
-        assert packman.die();
+    @When("^Pacman collides with a ghost without body")
+    public void packman_collides_with_a_ghost_without_body() {
+        ghost = new Ghost();
+        ghost.takeOutBody();
+        packman.collides(ghost);
     }
+
+    @Then("^The pacman does not die")
+        public void does_not_dies() {
+        assert !packman.isDie();
+    }
+
+    @Then("^The ghost loses its body$")
         public void the_ghost_loses_its_body() {
         assert !ghost.hasBody();
     }
-
-
 
 }

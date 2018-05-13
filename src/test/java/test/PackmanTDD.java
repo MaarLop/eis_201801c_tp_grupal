@@ -35,7 +35,7 @@ public class PackmanTDD {
         newGhost.weaken();
         newPackman.collides(newGhost);
 
-        assertTrue(newPackman.die());
+        assertFalse(newPackman.isDie());
     }
 
     @Test
@@ -46,6 +46,16 @@ public class PackmanTDD {
         newPackman.collides(newGhost);
 
         assertFalse(newGhost.hasBody());
+    }
+
+    @Test
+    public void PacmanHitsAGhostWithOutBodyAndIDoNotDie(){
+        Packman newPackman= new Packman();
+        Ghost newGhost= new Ghost();
+        newGhost.takeOutBody();
+        newPackman.collides(newGhost);
+
+        assertFalse(newPackman.isDie());
     }
 
 
