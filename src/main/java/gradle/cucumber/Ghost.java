@@ -18,4 +18,7 @@ public class Ghost {
     public void weaken(){
         this.isWeakened=true;
     }
+    public void takeOutBody(){
+        this.hasBody=false;
+    }
 }

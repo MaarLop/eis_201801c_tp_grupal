@@ -22,4 +22,10 @@ Feature: Packman game
         Scenario: A pacman collides with weakened ghost
           Given A new packman
           When Pacman collides with a ghost weakened
-          Then The pacman does not die and the ghost loses its body
+          Then The pacman does not die
+          And The ghost loses its body
+
+        Scenario: A pacman collides with ghost without body
+          Given A new packman
+          When Pacman collides with a ghost without body
+          Then The pacman does not die

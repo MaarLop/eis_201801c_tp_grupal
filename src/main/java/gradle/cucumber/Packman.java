@@ -28,7 +28,7 @@ public class Packman {
 
     }
 
-    public Boolean die() {
-        return this.isALive;
+    public Boolean isDie() {
+        return !this.isALive;
     }
 }
