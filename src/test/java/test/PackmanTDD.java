@@ -1,6 +1,7 @@
 package test;
 
 import gradle.cucumber.Biscuit;
+import gradle.cucumber.Fruit;
 import gradle.cucumber.Ghost;
 import gradle.cucumber.Packman;
 import org.junit.Test;
@@ -10,52 +11,58 @@ import static org.junit.Assert.*;
 public class PackmanTDD {
 
     @Test
-    public void givenANewPackmanWhenIGetItsPointsItsReturnCero(){
+    public void givenANewPackmanWhenIGetItsPointsItsReturnZeroAndIthsAlive(){
         Packman newPackman= new Packman();
 
         assertEquals(0, newPackman.getPoints());
+        assertFalse(newPackman.isDie());
 
     }
 
     @Test
-    public void givenANewPackmanWithsEatsABiscuitWhenIGetItsPointsItsRurnTen(){
-        Packman newPackman= new Packman();
+    public void givenANewBiscuitWhenIGetItsPointsItsReturnTen(){
         Biscuit newBiscuit= new Biscuit();
 
-        newPackman.eat(newBiscuit);
-
-        assertEquals(10, newPackman.getPoints());
+        assertEquals(10, newBiscuit.getPointsOfIt());
 
     }
 
     @Test
-    public void PacmanHitsAWeakenedGhostAndIDoNotDie(){
-        Packman newPackman= new Packman();
+    public void givenANewFruitWhenIGetItsPointsItsReturnTwenty(){
+        Fruit newFruit= new Fruit();
+
+        assertEquals(20, newFruit.getPointsOfIt());
+
+    }
+
+    @Test
+    public void givenANewGhosthWeCanCheckThatIsNotWeack(){
+        Ghost newGhost= new Ghost();
+
+        assertFalse(newGhost.isWeakened());
+    }
+
+    @Test
+    public void givenANewGhosthWeCanCheckThatIsWeack(){
         Ghost newGhost= new Ghost();
         newGhost.weaken();
-        newPackman.collides(newGhost);
 
-        assertFalse(newPackman.isDie());
+        assert(newGhost.isWeakened());
     }
 
     @Test
-    public void PacmanHitsAWeakenedGhostAndTheGhostLosesItsBody(){
-        Packman newPackman= new Packman();
+    public void givenANewGhosthWeCanCheckThatItHasBody(){
         Ghost newGhost= new Ghost();
-        newGhost.weaken();
-        newPackman.collides(newGhost);
 
-        assertFalse(newGhost.hasBody());
+        assert(newGhost.hasBody());
     }
 
     @Test
-    public void PacmanHitsAGhostWithOutBodyAndIDoNotDie(){
-        Packman newPackman= new Packman();
+    public void givenANewGhosthWeCanCheckThatItHasNotBody(){
         Ghost newGhost= new Ghost();
         newGhost.takeOutBody();
-        newPackman.collides(newGhost);
 
-        assertFalse(newPackman.isDie());
+        assertFalse(newGhost.hasBody());
     }
 
 

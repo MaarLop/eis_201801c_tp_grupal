@@ -11,9 +11,8 @@ public class Ghost {
     public Boolean hasBody() {
         return this.hasBody;
     }
-    public Boolean isWeakened(){return  this.isWeakened;}
-    public void noBody(){
-        this.hasBody=false;
+    public Boolean isWeakened(){
+        return  this.isWeakened;
     }
     public void weaken(){
         this.isWeakened=true;

@@ -14,10 +14,10 @@ Ejercitar la escritura de código en ambientes colaborativos utilizando una meto
 
 Nro | Nombre        | Legajo | Mail
 ----|---------------|--------|------
-1   |Giselle Escobar|        |escobargisele1@gmail.com
-2   |Martin Castello|        |castellomn94@gmail.com
-3   |Susana Lopez   |        |s.mariel.lopez1995@gmail.com
-4   |Omar Gomez     |        |eo-gp@hotmail.com
+1   |Giselle Escobar|  21768 |escobargisele1@gmail.com
+2   |Martin Castello|  31226 |castellomn94@gmail.com
+3   |Susana Lopez   |  31435 |s.mariel.lopez1995@gmail.com
+4   |Omar Gomez     |  38487 |eo-gp@hotmail.com
     
 ### Entrega
 

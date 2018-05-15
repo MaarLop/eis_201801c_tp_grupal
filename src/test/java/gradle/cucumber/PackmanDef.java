@@ -4,6 +4,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PackmanDef {
@@ -11,6 +15,7 @@ public class PackmanDef {
     private Biscuit biscuit;
     private Ghost ghost;
     private Fruit fruit;
+    private List<Ghost> everyGhosts= new ArrayList<Ghost>();
 
     @Given("^A new packman")
     public void a_new_packman() {
@@ -27,10 +32,7 @@ public class PackmanDef {
 
     @Then("^Its points are (\\d+)$")
     public void its_points_are(int point) {
-        Object actual = packman.getPoints();
-        Object expected = point;
-
-        assertThat(actual).isEqualTo(expected);
+       assertThat( packman.getPoints()).isEqualTo(point);
     }
 
     @When("^Packman collides with a ghost")
@@ -73,5 +75,21 @@ public class PackmanDef {
         public void the_ghost_loses_its_body() {
         assert !ghost.hasBody();
     }
+
+    @When("^Packman eats a pellet and there are (\\d+) ghost in the play$")
+    public void packman_eats_a_pellet_and_there_are_ghost_in_the_play(int howMany) {
+        for (int i= 0; i>howMany; i++){
+            Ghost newGhost= new Ghost();
+            this.everyGhosts.add(newGhost);
+        }
+        this.everyGhosts.stream().forEach(g->g.weaken());
+    }
+
+    @Then("^Every one of the ghosts get weaknes$")
+    public void every_one_of_the_ghosts_get_weaknes() {
+        assert this.everyGhosts.stream().allMatch(g->g.isWeakened());
+
+    }
+
 
 }

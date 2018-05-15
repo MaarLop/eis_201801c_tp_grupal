@@ -23,7 +23,7 @@ public class Packman {
             this.isALive=false;
         }
         if(ghost.hasBody() && ghost.isWeakened()){
-            ghost.noBody();
+            ghost.takeOutBody();
         }
 
     }
